@@ -13,7 +13,7 @@
         "outDir": "./lib/",
         "sourceMap": true,
         "noUnusedParameters": true,
-        "noUnusedLocals": true,
+        "noUnusedLocals": true
     },
     "exclude": [
         "node_modules",

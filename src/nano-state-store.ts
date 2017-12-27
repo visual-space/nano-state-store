@@ -1,5 +1,8 @@
 // import { DEBUG } from '../../../config/app.config'
 
+// Intefaces
+import { MapCurrState, MapPrevState } from './interfaces/nano-state-store'
+
 // Utils
 import { mergeDeep } from './utils'
 
@@ -13,14 +16,9 @@ import { mergeDeep } from './utils'
 // let debug = require('debug')('vs:NanoStateStore')
 // DEBUG.instance && debug('Instantiate NanoStateStore')
 
-type MapPrevState<AS> = (appState: AS) => AS // Map prev state to new state with changes
-type Map<AS> = (appState: AS) => any
-
-// // GLobals used in console
-// ;(window as any).getState = getState
-// ;(window as any).setState = setAppState
-
 export class NanoStateStore<AS> {
+// module.exports = class NanoStateStore<AS> {
+// export default class NanoStateStore<AS> {
     
     /**
      * <!> This is the central location where the entire state of the app is stored.
@@ -54,7 +52,7 @@ export class NanoStateStore<AS> {
     setAppState(
         type: string | string[], // Action type
         appStateChanges: AS | any, // MapPrevState, // Reducer // TODO Union type of object and method does no work ok
-        map: Map<AS> | Map<AS>[], // Selector
+        map: MapCurrState<AS> | MapCurrState<AS>[], // Selector
     ): void {
     
         // Prev state
@@ -77,10 +75,10 @@ export class NanoStateStore<AS> {
         // One or multiple events
         if (type.constructor === Array) {
             (<string[]>type).forEach( (type, i) => 
-                this.dispatchAppStateEv((<Map<AS>[]>map)[i], type, prevAppState, newAppState)
+                this.dispatchAppStateEv((<MapCurrState<AS>[]>map)[i], type, prevAppState, newAppState)
             )
         } else {
-            this.dispatchAppStateEv(<Map<AS>>map, <string>type, prevAppState, newAppState)
+            this.dispatchAppStateEv(<MapCurrState<AS>>map, <string>type, prevAppState, newAppState)
         }
         
     }
@@ -94,7 +92,7 @@ export class NanoStateStore<AS> {
     
     /* Send state update event */
     dispatchAppStateEv (
-        map: Map<AS>, 
+        map: MapCurrState<AS>, 
         actionType: string, 
         _prevAppState: AS, 
         newAppState: AS

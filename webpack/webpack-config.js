@@ -14,7 +14,9 @@ module.exports = {
     output: {
         path: LIB_DIR,
         publicPath: '/',
-        filename: 'nano-state-store.js'
+        filename: 'nano-state-store.js',
+		libraryTarget: 'commonjs2',
+		library: 'NanoStateStore'
     },
 
     resolve: {
