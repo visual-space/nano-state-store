@@ -1,6 +1,6 @@
 {
   "name": "nano-state-store",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple, barebone state store with little boilerplate",
   "main": "lib/nano-state-store.js",
   "types": "./src/nano-state-store.d.ts",
