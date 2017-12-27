@@ -1,0 +1,22 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "module": "commonjs",
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "lib": [
+            "dom",
+            "es2017"
+        ],
+        "target": "ES6",
+        "noImplicitAny": true,
+        "outDir": "./lib/",
+        "sourceMap": true,
+        "noUnusedParameters": true,
+        "noUnusedLocals": true,
+    },
+    "exclude": [
+        "node_modules",
+        "lib"
+    ]
+}
