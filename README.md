@@ -4,7 +4,7 @@
 
 Follow on twitter: [@visual-space](https://twitter.com/visual_space), [@adriancmoisa](https://twitter.com/adriancmoisa)
 
-**This is first still work in progress. It is far from being released so don't bother to check this project for the moment.**
+**This is WORK IN PROGRESS. It is far from being released so don't bother to check this project for the moment.**
 
 ## Installation and usage
 
